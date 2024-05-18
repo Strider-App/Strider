@@ -17,9 +17,7 @@ export default function Index() {
       style={ styles.mainView }
     >
       <ThemedText>Strider App</ThemedText>
-      <Collapsible title="Things to do">
-        <ThemedText type='default'>Seems to be working now</ThemedText>
-      </Collapsible>
+      <ThemedText type="defaultSemiBold">Home</ThemedText>
     </ThemedView>
   );
 }
