@@ -4,8 +4,9 @@ import { ThemedView } from "@/components/ThemedView";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { Text, View, useColorScheme, StyleSheet } from "react-native";
 import { Colors } from "@/constants/Colors"
+import { Header } from "react-native/Libraries/NewAppScreen";
 
-export default function Index() {
+export default function SearchScreen() {
   // double question mark means that if useColorScheme() returns
   // null or undefined then the value becomes 'light'
   const theme = useColorScheme() ?? 'light';

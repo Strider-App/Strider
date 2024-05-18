@@ -3,6 +3,8 @@ import React  from 'react';
 import { TabBarIcon } from '@/components/navigation/TabBarIcon';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
+import { Text } from 'react-native';
+import { HeaderTitle } from '@/components/HeaderTitle';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -17,16 +19,16 @@ export default function TabLayout() {
       <Tabs.Screen
         name="search"
         options={{
-          title: 'Search',
+          header: () => (<HeaderTitle title="Search" />),
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon name={focused ? 'search' : 'search-outline'} color={color} />
           ),
         }}
       />
         <Tabs.Screen
-          name="index"
+          name="home"
           options={{
-            title: 'Home',
+            header: () => (<HeaderTitle title="Home" />),
             tabBarIcon: ({ color, focused }) => (
               <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
             ),
@@ -35,7 +37,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="account"
         options={{
-          title: 'Account',
+          header: () => (<HeaderTitle title="Account" />),
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon name={focused ? 'person' : 'person-outline'} color={color} />
           ),

@@ -5,7 +5,7 @@ import { useThemeColor } from "@/hooks/useThemeColor";
 import { Text, View, useColorScheme, StyleSheet } from "react-native";
 import { Colors } from "@/constants/Colors"
 
-export default function Index() {
+export default function AccountScreen () {
   // double question mark means that if useColorScheme() returns
   // null or undefined then the value becomes 'light'
   const theme = useColorScheme() ?? 'light';
