@@ -1,14 +1,24 @@
-import { Tabs } from 'expo-router';
-import React  from 'react';
+import { HeaderTitle } from '@/components/HeaderTitle';
 import { TabBarIcon } from '@/components/navigation/TabBarIcon';
 import { Colors } from '@/constants/Colors';
+import { useSession } from '@/ctx';
 import { useColorScheme } from '@/hooks/useColorScheme';
+import { Redirect, Tabs } from 'expo-router';
+import React from 'react';
 import { Text } from 'react-native';
-import { HeaderTitle } from '@/components/HeaderTitle';
 
 export default function TabLayout() {
+  const { session, isLoading } = useSession()
   const colorScheme = useColorScheme();
   
+  if (isLoading) {
+    return <Text>Loading...</Text>
+  }
+
+  if (!session) {
+    return <Redirect href="/login"/>
+  }
+
   return (
     <Tabs
       screenOptions={{
@@ -26,7 +36,7 @@ export default function TabLayout() {
         }}
       />
         <Tabs.Screen
-          name="home"
+          name="index"
           options={{
             header: () => (<HeaderTitle title="Home" />),
             tabBarIcon: ({ color, focused }) => (

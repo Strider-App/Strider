@@ -1,11 +1,15 @@
-import { Image, Pressable, StyleSheet, Text, View } from "react-native"
-import { Colors } from "@/constants/Colors"
-import { Link } from "expo-router"
+import { Colors } from "@/constants/Colors";
+import { Link } from "expo-router";
+import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 
-export function HeaderTitle ({title}: {title: string}) {
+type headerProps = {
+  title: string;
+};
+
+export function HeaderTitle (props: headerProps) {
   return (
     <View style={styles.containerStyles}>
-      <Text style={styles.textStyles}>{ title }</Text>
+      <Text style={styles.textStyles}>{ props.title }</Text>
       <Link href='/account'>
         <View style={styles.imageContainerStyles}>
           <Image
@@ -21,9 +25,10 @@ export function HeaderTitle ({title}: {title: string}) {
 const styles = StyleSheet.create({
   textStyles: {
     paddingLeft: 15,
-    fontFamily: "Arial",
+    fontFamily: "ArialBlack",
     fontSize: 24,
-    color: "white"
+    color: "white",
+    marginBottom: 10,
   },
   imageStyles: {
     resizeMode: 'contain',
@@ -36,6 +41,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    backgroundColor: Colors.theme.background
   },
   imageContainerStyles: {
     width: 40,
